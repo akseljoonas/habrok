@@ -1,0 +1,2 @@
+Best Coefficients at iteration 1000: [0.7 0.4 0.3 0.1 0.1]
+Best F0.5 score at iteration 1000: 0.87914597612571
