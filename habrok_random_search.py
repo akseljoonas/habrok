@@ -1,6 +1,6 @@
 import pandas as pd 
 import numpy as np  
-from tqdm import tqdm_notebook  
+#from tqdm import tqdm_notebook  
 from sklearn.metrics import fbeta_score 
 import random
 
@@ -59,7 +59,7 @@ best_coefficients = None
 not_best = [[0.5,0.5,0.5,0.5,0.5]]
 best = [[0.1,  0.05, 0.7,  0.1,  0.9 ]]
 
-for _ in tqdm_notebook(range(5000)):
+for _ in range(20000):
     # Randomly choose coefficients not in not_best
     coef_to_try = None
     while coef_to_try is None or any(np.all(coef_to_try == np.array(not_best), axis=1)):
@@ -82,6 +82,9 @@ for _ in tqdm_notebook(range(5000)):
     not_best.append(coef_to_try)
 
 
-print("Best Coefficients:", best_coefficients)
+
 best.append(best_coefficients)
-print("Best Cross-Validation Accuracy:", best_score)
+with open('output.txt','w') as file:
+    
+    print(f"Best Coefficients: {best_coefficients}", file=file)
+    print(f"Best Cross-Validation Accuracy: {best_score}", file = file)
