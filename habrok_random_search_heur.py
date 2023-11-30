@@ -71,7 +71,7 @@ for i in range(2000):
             random.choice(value_choice['bert'])
         ])
     
-    ensemble_pred = ensemble_predict(ensemble_matrix.drop(['id', 'voted_up'], axis=1), coef_to_try)
+    ensemble_pred = ensemble_predict(ensemble_matrix.drop(['id'], axis=1), coef_to_try)
     score = sum(ensemble_pred)
     
     # Check if this combination is the best so far

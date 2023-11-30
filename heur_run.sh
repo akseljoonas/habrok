@@ -13,4 +13,4 @@ pip install --upgrade pip
 pip install --upgrade wheel
 pip install -r require.txt
 
-python3 habrok_random_search.py
+python3 habrok_random_search_heur.py
