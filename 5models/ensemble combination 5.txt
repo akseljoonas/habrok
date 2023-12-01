@@ -1,0 +1,10 @@
+
+
+
+ 5 meaningfully different models randomly selected )
+
+ with these models respectively (user, game, matrix, genre, bert): (4, 4, 4, 3, 1))
+
+Final best Coefficients: [0.2 0.1 0.2 0.3 0.1]
+
+Final best evaluation score: 478462

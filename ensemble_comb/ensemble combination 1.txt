@@ -1,0 +1,24 @@
+
+Final best Coefficients: [0.2, 0.15, 0.55, 0.05, 0.1]
+
+Final best evaluation score: 527926
+
+Final best Coefficients: [0.2, 0.15, 0.55, 0.05, 0.1]
+
+Final best evaluation score: 527926
+
+ with these models: (29, 4, 24, 12, 5))
+
+Final best Coefficients: [0.1 0.3 0.7 0.6 0.2]
+
+Final best evaluation score: 503191
+
+
+
+ Random ensemble but with 100 iteartions)
+
+ with these models: (31, 12, 26, 22, 13))
+
+Final best Coefficients: [0.5 0.4 0.2 0.4 0.1]
+
+Final best evaluation score: 481763

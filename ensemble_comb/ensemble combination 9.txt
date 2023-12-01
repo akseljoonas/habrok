@@ -1,0 +1,16 @@
+
+ with these models: (21, 27, 3, 1, 10))
+
+Final best Coefficients: [0.2, 0.15, 0.55, 0.05, 0.1]
+
+Final best evaluation score: 527926
+
+
+
+ Random ensemble but with 100 iteartions)
+
+ with these models: (8, 15, 28, 18, 9))
+
+Final best Coefficients: [0.2, 0.15, 0.55, 0.05, 0.1]
+
+Final best evaluation score: 527926

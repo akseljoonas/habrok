@@ -1,0 +1,6 @@
+
+ with these models: (20, 4, 27, 23, 5))
+
+Final best Coefficients: [0.2 0.1 0.6 0.5 0.4]
+
+Final best evaluation score: 517859

@@ -1,0 +1,6 @@
+
+ with these models: (16, 16, 32, 30, 28))
+
+Final best Coefficients: [0.4  0.05 0.7  0.6  0.2 ]
+
+Final best evaluation score: 356875
