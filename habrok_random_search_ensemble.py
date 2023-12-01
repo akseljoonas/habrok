@@ -3,11 +3,12 @@ import numpy as np
 from sklearn.metrics import fbeta_score 
 import random
 
-useravg = pd.read_csv("./best_files/user 0.6.csv")
-gameavg = pd.read_csv("./best_files/game 0.7.csv")
-matrix_fact = pd.read_csv("./best_files/matrix-7.csv")
-genre = pd.read_csv("./best_files/genre 0.1.csv")
-bert = pd.read_csv("./best_files/bert 0.6.csv")
+
+useravg = pd.read_csv(f"./ensemble (31).csv")
+gameavg = pd.read_csv(f"./ensemble (22).csv")
+matrix_fact = pd.read_csv(f"./ensemble (28).csv")
+genre = pd.read_csv(f"./ensemble (29).csv")
+bert = pd.read_csv(f"./ensemble (24).csv")
 
 train = pd.read_csv("./train_split.csv")
 eval = pd.read_csv("./eval_split.csv")
@@ -54,10 +55,10 @@ value_choice = {
 # Perform grid search
 best_score = 527926
 best_coefficients = [0.2, 0.15, 0.55, 0.05, 0.1]
-tried_list = [[0,0,0,0,0]]
+tried_list = [[0.05, 0.05, 0.05, 0.05, 0.05]]
 best = [[0.2, 0.15, 0.55, 0.05, 0.1]]
 
-for i in range(50000):
+for i in range(2000):
     # Randomly choose coefficients not in not_best
     coef_to_try = None
     while coef_to_try is None or any(np.all(coef_to_try == np.array(tried_list), axis=1)):
@@ -78,17 +79,18 @@ for i in range(50000):
         best_coefficients = coef_to_try
     
     tried_list.append(coef_to_try) 
-    if i % 5000 == 0:
+
+    if i % 1000 == 0 and not any(np.array_equal(coef_to_try, b) for b in best):
         best.append(best_coefficients)
         
-        with open('./best_models/output.txt','a') as file:
+        with open('output.txt','a') as file:
     
             print(f"\nBest Coefficients at iteration {i}: {best_coefficients}", file=file)
             print(f"\nBest F0.5 score at iteration {i}: {best_score}", file = file)
 
 
 best.append(best_coefficients)
-with open('./best_models/output.txt','a') as file:
+with open('output.txt','a') as file:
     
     print(f"\nFinal best Coefficients: {best_coefficients}", file=file)
     print(f"\nFinal best F0.5 score: {best_score}", file = file)

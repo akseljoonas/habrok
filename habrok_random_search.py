@@ -3,15 +3,14 @@ import numpy as np
 from sklearn.metrics import fbeta_score 
 import random
 
-useravg = pd.read_csv("./useravg.csv")
-gameavg = pd.read_csv("./gameavg.csv")
-matrix_fact = pd.read_csv("./matrix-7.csv")
-genre = pd.read_csv("./genre.csv")
-bert = pd.read_csv("./bert_model.csv")
+useravg = pd.read_csv("./useravg_eval.csv")
+gameavg = pd.read_csv("./gameavg_eval.csv")
+matrix_fact = pd.read_csv("./matrix_eval.csv")
+genre = pd.read_csv("./genre_eval.csv")
+bert = pd.read_csv("./bert_eval.csv")
 
 train = pd.read_csv("./train_split.csv")
 eval = pd.read_csv("./eval_split.csv")
-test = pd.read_csv("./test_split.csv")
 
 
 
@@ -43,19 +42,21 @@ def ensemble_predict(ensemble_matrix, coef_to_try):
 
 # Define the range of values for coefficients
 value_choice = {
-    'useravg': [ 0.2, 0.25, 0.3, 0.35, 0.4, 0.45, 0.5, 0.55, 0.65, 0.7, 0.75],
-    'gameavg': [0.15, 0.2, 0.25, 0.3, 0.35, 0.4, 0.5],
-    'matrix': [0.5, 0.55, 0.6, 0.65, 0.7, 0.75, 0.8, 0.9],
-    'genre': [0.05, 0.1, 0.15, 0.2, 0.3],
-    'bert': [0.05, 0.1, 0.15, 0.2, 0.3]
+    'useravg': [0.05, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9],
+    'gameavg': [0.05, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9],
+    'matrix': [0.05, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9],
+    'genre': [0.05, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9],
+    'bert': [0.05, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9]
     }
 
+# Assuming ensemble_data is your feature matrix and target variable
+ensemble_matrix = ensemble.merge(eval[['id', 'voted_up']], on='id', how='inner')
 
 # Perform grid search
 best_score = 527926
 best_coefficients = [0.2, 0.15, 0.55, 0.05, 0.1]
 tried_list = [[0.2, 0.15, 0.55, 0.05, 0.1], [0.7, 0.4, 0.5, 0.1, 0.1], [0.7, 0.4, 0.6, 0.1, 0.1], 
-              [0.7, 0.4, 0.3, 0.1, 0.1], [0.7, 0.7, 0.1, 0.3, 0.1], [0.2, 0.15, 0.55, 0.05, 0.1],
+              [0.7 0.4 0.3 0.1 0.1], [0.7, 0.7, 0.1, 0.3, 0.1], [0.2, 0.15, 0.55, 0.05, 0.1],
               [0.2, 0.15, 0.55, 0.05, 0.1], [0.2, 0.2, 0.45, 0.1, 0.1]]
 best = [[0.2, 0.15, 0.55, 0.05, 0.1]]
 

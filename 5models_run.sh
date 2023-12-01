@@ -1,6 +1,6 @@
 #!/bin/bash
 
-#SBATCH --job-name=5_best_models
+#SBATCH --job-name=random_5models
 #SBATCH --time=10:00:00
 #SBATCH --mem=4G
 
@@ -13,4 +13,4 @@ pip install --upgrade pip
 pip install --upgrade wheel
 pip install -r require.txt
 
-python3 habrok_random_search_heur.py
+python3 random_5models.py
